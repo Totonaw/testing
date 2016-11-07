@@ -1,6 +1,6 @@
 var firebase = require('firebase');
-var googleCloud = require('google-cloud');
-var storage;
+// var googleCloud = require('google-cloud');
+// var storage;
 
 function init(){
     firebase.initializeApp({
@@ -15,10 +15,10 @@ function init(){
         databaseURL: "https://friendlychat-c3820.firebaseio.com",
         messagingSenderId: "56315327945"
     });
-    storage = googleCloud.storage({ 
-        projectId:"friendlychat-c3820",
-        keyFileName:"../../friendlychat-2c0fb7d4e6d8.json",
-    });
+    // storage = googleCloud.storage({ 
+    //     projectId:"friendlychat-c3820",
+    //     keyFileName:"../../friendlychat-2c0fb7d4e6d8.json",
+    // });
 }
 
 function FirebaseChat(){
@@ -26,7 +26,7 @@ function FirebaseChat(){
 
     this.auth = firebase.auth();
     this.database = firebase.database();
-    this.storage = storage.bucket("friendlychat-c3820.appspot.com");
+    // this.storage = storage.bucket("friendlychat-c3820.appspot.com");
     this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
    
 }
