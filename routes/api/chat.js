@@ -4,7 +4,7 @@ var crypto = require('crypto');
 // var md5 = crypto.createHash('md5');
 var Firebase = requirePath('library/firebase/index');
 var FirebaseChat = new Firebase();
-var orm = requirePath('models/');
+// var orm = requirePath('models/');
 
 var  algorithm = 'aes-256-ctr';
 var  password = 'test123token';
@@ -29,26 +29,29 @@ router.use(function(req,res,next){
     if(!token){
         var email = req.params.email || req.query.email;
         var passwd = req.params.password || req.query.password || '';
-        orm.user.findAll({
-                where : {
-                    $and:[{
-                        username:email
-                    },
-                    {
-                        password:require('crypto').createHash('md5').update(passwd).digest('hex')       
-                    }]
-                },
-                raw:true,
-                plain:true,
-            })
-            .then(function(result){
-                res.user = result;
-                next();
-            })
-            .catch(function(err){
-                console.log(err);
-                next();
-            });
+        // orm.user.findAll({
+        //         where : {
+        //             $and:[{
+        //                 username:email
+        //             },
+        //             {
+        //                 password:require('crypto').createHash('md5').update(passwd).digest('hex')       
+        //             }]
+        //         },
+        //         raw:true,
+        //         plain:true,
+        //     })
+        //     .then(function(result){
+        //         res.user = result;
+        //         next();
+        //     })
+        //     .catch(function(err){
+        //         console.log(err);
+        //         next();
+        //     });
+        res.user = {username:email,password:passwd};
+        console.log('hahaha');
+        next();
     }else{
         next();
     }
