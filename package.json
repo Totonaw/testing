@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "angular": "^1.5.8",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "^2.2.0",
@@ -13,6 +14,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.14.2",
     "firebase": "^3.5.3",
+    "firebase-admin": "^4.0.0",
     "google-cloud": "^0.43.0",
     "handlebars": "^4.0.5",
     "jade": "~1.11.0",

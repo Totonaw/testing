@@ -25,6 +25,12 @@ global.requirePath = function(fileName){
 
 var routes = require('./routes/init');
 
+//init firebase
+var firebase = require('./firebaseinit');
+var x = new firebase();
+global.firebaseClient = x.client;
+global.firebaseServer = x.server;
+
 // view engine setup
 
 app.engine('.hbs', hbs.engine);
@@ -59,7 +65,6 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
  
   app.use(function(err, req, res, next) {
-     console.log(err.message);
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,

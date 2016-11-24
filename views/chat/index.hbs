@@ -1,0 +1,21 @@
+
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBNkvqLE2LmxGUdQLxr_TlkBWfT9CC7jXo",
+    authDomain: "friendlychat-c3820.firebaseapp.com",
+    databaseURL: "https://friendlychat-c3820.firebaseio.com",
+    storageBucket: "friendlychat-c3820.appspot.com",
+    messagingSenderId: "56315327945"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="javascripts/chat/main.js"></script>
+
+<form method="POST">
+    <input type="text" id="email" name="email" placeholder="Email...">
+    <input type="password" id="password" name="password" placeholder="Password...">
+    <input type="submit" id="sign-in" name="submit" value="Sign-in">
+</form>    
